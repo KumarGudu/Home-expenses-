@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.header-section{
+  position: relative;
+  width: 100%;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* background: url(../image/bg.jpg) no-repeat; */
+  background-size: cover;
+  background-position: center;
+}
+
+.navbar{
+  position: relative;
+  top: 0;
+  width: 100%;
+  padding: 30px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbtn{
+  display: none;
+}
+
+.navbar .logo{
+  position: relative;
+  color: #000;
+  font-size: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.navbar .navigation a{
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 2px 15px;
+  border-radius: 20px;
+  transition: 0.3s;
+  transition-property: background;
+}
+
+.navbar .navigation a:not(:last-child){
+  margin-right: 30px;
+}
+
+.navbar .navigation a:hover{
+  background: #fff;
+}
+#check{
+  z-index: 3;
+  display: none;
+}
+
+/* Responsive CSS */
+
+@media (max-width: 960px){
+  .navbar .navigation{
+    display: none;
+  }
+
+  .checkbtn{
+    display: block;
+    font-size: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    transition-property: color;
+  }
+
+  .checkbtn:hover{
+    color: #fff;
+  }
+
+  .checkbtn .close-btn{
+    display: none;
+  }
+
+  #check:checked ~ .navbar .navigation{
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(114, 223, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #check:checked ~  .navbar .navigation a{
+    font-weight: 700;
+    margin-right: 0;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+  }
+
+  #check:checked ~ .navbar .checkbtn .close-btn{
+    z-index: 2;
+    position: fixed;
+    display: block;
+  }
+
+  #check:checked ~ .navbar .checkbtn .menu-btn{
+    display: none;
+  }
+
+  .checkbtn .menu-btn{
+    position: absolute;
+  }
+
+  .navbar .logo{
+    position: absolute;
+    bottom: -6px;
+  }
+}
